@@ -2,24 +2,29 @@
 
 This section is broken up into the following steps:
 
-1. [Sign up for IBM Cloud](#1-sign-up-for-ibm-cloud)
-1. [Download or clone the repo](#2-download-or-clone-the-repo)
+1. [Setup](#1-setup)
 
-## 1. Sign up for IBM Cloud
+## 1. Setup
 
-Ensure you have an IBM Cloud ID
+### Mac OSX
 
-![Cloud Sign up](../.gitbook/generic/ibm-cloud-sign-up.png)
+Install SonarQube,
 
-## 2. Download or clone the repo
-
-Various parts of this workshop will require the attendee to upload files or run scripts that we've stored in the repository. So let's get that done early on, you'll need [`git`](https://git-scm.com) on your laptop to clone the repository directly, or access to [GitHub.com](https://github.com/) to download the zip file.
-
-To Download, go to the [GitHub repo for this workshop](https://github.com/IBM/workshop-template) and download the archived version of the workshop and extract it on your laptop.
-
-Alternately, run the following command:
-
-```bash
-git clone https://github.com/IBM/workshop-template
-cd workshop-template
 ```
+% brew install sonar
+% brew install sonar-scanner
+
+% sonar-scanner -v
+INFO: Scanner configuration file: /usr/local/Cellar/sonar-scanner/4.4.0.2170/libexec/conf/sonar-scanner.properties
+INFO: Project root configuration file: NONE
+INFO: SonarScanner 4.4.0.2170
+INFO: Java 1.8.0_191 Oracle Corporation (64-bit)
+INFO: Mac OS X 10.15.6 x86_64
+
+% sonar start
+Starting SonarQube...
+Started SonarQube.
+
+% open http://localhost:9000/projects
+```
+
