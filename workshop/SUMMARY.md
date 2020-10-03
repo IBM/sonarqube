@@ -8,14 +8,9 @@
 
 * [Pre-work](pre-work/README.md)
 
-### Some Heading
+### Labs
 
-* [Some Section](some-section/README.md)
-    * [Some Exercise](some-exercise/README.md)
-
-### Workshop Resources
-
-* [Instructor Guide](admin-guide/README.md)
+* [Lab 1](get-started-with-sonarqube/README.md)
 
 ### Resources
 

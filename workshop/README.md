@@ -19,9 +19,9 @@ The introductory page of the workshop is broken down into the following sections
 |   |   |
 | - | - |
 | [Lab 0: Pre-work](pre-work/README.md) | Install SonarQube |
-| [Lab 1: Get Started](get-started/README.md) | Get Started with Sonar Scanner |
-| [Lab 2: Run Sonar Scanner in Tekton Pipeline](sonar-scanner-with-tekton/README.md) | Run Sonar Scanner as part of a Tekton Pipeline |
-| [Lab 3: Add OWASP Dependency Check to SonarQube](TBD/README.md) | TBD |
+| [Lab 1: Get Started with SonarQube](get-started-with-sonarqube/README.md) | Get Started with SonarQube, run a simple scan with scanner-cli on the NodeGoat project. |
+| Lab 2: Run Sonar Scanner in Tekton Pipeline | TBD |
+| Lab 3: Add OWASP Dependency Check to SonarQube | TBD |
 
 ## Compatibility
 
