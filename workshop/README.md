@@ -20,6 +20,8 @@ The introductory page of the workshop is broken down into the following sections
 | - | - |
 | [Lab 0: Pre-work](pre-work/README.md) | Install SonarQube |
 | [Lab 1: Get Started](get-started/README.md) | Get Started with Sonar Scanner |
+| [Lab 2: Run Sonar Scanner in Tekton Pipeline](sonar-scanner-with-tekton/README.md) | Run Sonar Scanner as part of a Tekton Pipeline |
+| [Lab 3: Add OWASP Dependency Check to SonarQube](TBD/README.md) | TBD |
 
 ## Compatibility
 
