@@ -10,7 +10,7 @@ clean_generatedContent(){
 }
 
 do_the_thing(){
-    
+
     for repoPath in `yq r agenda.yaml --printMode p "repos.*"`; do
 
         repo=`yq r agenda.yaml --printMode v "$repoPath.url"`

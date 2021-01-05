@@ -10,7 +10,7 @@ This section is broken up into the following steps:
 
 Install SonarQube,
 
-```
+```bash
 % brew install sonar
 % brew install sonar-scanner
 
@@ -27,4 +27,3 @@ Started SonarQube.
 
 % open http://localhost:9000/projects
 ```
-

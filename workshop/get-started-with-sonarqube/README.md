@@ -4,17 +4,17 @@ Description goes here.
 
 This section is comprised of the following steps:
 
-- [Lab 1 - Get Started with SonarQube](#lab-1---get-started-with-sonarqube)
-  - [About SonarQube](#about-sonarqube)
-  - [Open a Client Terminal](#open-a-clientterminal)
-  - [Installation with Docker](#installation-withdocker)
-  - [[Optional] Installation on MacOS](#optional-installation-onmacos)
-  - [[Optional] Open SonarQube Console](#optional-open-sonarqube-console)
-  - [Get NodeGoat App](#get-nodegoatapp)
-  - [Setup NodeGoat Project in SonarQube](#setup-nodegoat-project-in-sonarqube)
-  - [Setup the SonarQube Scanner CLI](#setup-the-sonarqube-scannercli)
-  - [Run a Basic SonarQube Scan](#run-a-basic-sonarqube-scan)
-  - [Conclusion](#conclusion)
+* [Lab 1 - Get Started with SonarQube](#lab-1---get-started-with-sonarqube)
+  * [About SonarQube](#about-sonarqube)
+  * [Open a Client Terminal](#open-a-clientterminal)
+  * [Installation with Docker](#installation-withdocker)
+  * [[Optional] Installation on MacOS](#optional-installation-onmacos)
+  * [[Optional] Open SonarQube Console](#optional-open-sonarqube-console)
+  * [Get NodeGoat App](#get-nodegoatapp)
+  * [Setup NodeGoat Project in SonarQube](#setup-nodegoat-project-in-sonarqube)
+  * [Setup the SonarQube Scanner CLI](#setup-the-sonarqube-scannercli)
+  * [Run a Basic SonarQube Scan](#run-a-basic-sonarqube-scan)
+  * [Conclusion](#conclusion)
 
 ## About SonarQube
 
@@ -25,6 +25,7 @@ Security is an intimidating topic. Some parts of security are really advanced an
 ![SonarQube](../.gitbook/get-started/sonarqube-logo.png)
 
 You can roughly distinguish three to four forms of Application Security Testing (AST):
+
 * **Static Application Security Testing (SAST)** does an analysis of vulnerabilities in your code, also known as white-box testing and finds roughly about 50% of issues.
 * **Dynamic Application Security Testing (DAST)**, does not have access to your code and tests for vulnerabilities in the application flow, also known as black-box testing and is great for End-to-End (E2E) testing and pentesting, finding about 20% of issues,
 * **Interactive Application Security Testing (IAST)**, distinguishing passive and active IAST, is considered a mix of SAST and DAST with the best coverage of issues. It is sometimes also named grey-box testing, because it places IAST monitoring agents inside the application, integrates really well with CI/CD pipelines and is seen to shift-left testing,
@@ -32,7 +33,8 @@ You can roughly distinguish three to four forms of Application Security Testing 
 
 In this lab, you will use SonarQube on Docker to run a SAST scan against the source code of a web app called NodeGoat. The [NodeGoat project](https://github.com/OWASP/NodeGoat) is a reference environment created by OWASP to learn how [OWASP Top 10 security risks](https://owasp.org/www-project-top-ten/) apply to web applications developed using Node.js. The [Open Web Application Security Project (OWASP)](https://owasp.org/) is an online community that produces freely-available articles, methodologies, documentation, tools, and technologies in the field of [web application security](https://en.wikipedia.org/wiki/Web_application_security).
 
-Steps on localhost: 
+Steps on localhost:
+
 * Open a Client Terminal
 * Installation with Docker,
 * [Optional] Installation on MacOS,
@@ -42,9 +44,9 @@ Steps on localhost:
 * Setup the SonarQube Scanner CLI,
 * Run a Basic SonarQube Scan,
 
-## Open a Client Terminal
+## Open a Client Terminal
 
-This article was tested using the `Theia - Cloud IDE (With Docker)` client terminal from [labs.cognitiveclass.ai](https://labs.cognitiveclass.ai) as well as on macOS Catalina version 10.15.6. With the Theia environment you will now have access to a UI or browser, so skip the UI based options in the article and stick with the terminal, which for the purpose of this article, I recommend regardless. ;-) The value of sticking to the CLI commands, is that those will be easy to automate later as part of the developer adagium that `Everything is Code`.
+This article was tested using the `Theia - Cloud IDE (With Docker)` client terminal from [labs.cognitiveclass.ai](https://labs.cognitiveclass.ai) as well as on macOS Catalina version 10.15.6. With the Theia environment you will now have access to a UI or browser, so skip the UI based options in the article and stick with the terminal, which for the purpose of this article, I recommend regardless. ;-) The value of sticking to the CLI commands, is that those will be easy to automate later as part of the developer adagium that `Everything is Code`.
 
 The [CognitiveClass.ai](https://cognitiveclass.ai) is probably the most feature-rich, self-guided, learning environment where you can earn badges in a range of topics from Kubernetes, OpenShift to Machine Learning.
 
@@ -58,7 +60,7 @@ Sign up and log in with your social account or signup for a free Cognitive Class
 
 ![CognitiveClass Labs](../.gitbook/get-started/cognitiveclass-signin.png)
 
-Once logged in, select the `Theia - Cloud IDE (With Docker)` environment,
+Once logged in, select the `Theia - Cloud IDE (With Docker)` environment,
 
 ![CognitiveClass Labs - Select Environment](../.gitbook/get-started/cognitive-class-select-environment.png)
 
@@ -70,8 +72,8 @@ Open a new client terminal from the Terminal menu > New Terminal.
 
 ![CognitiveClass Labs - Theia IDE](../.gitbook/get-started/cognitive-class-theia-terminal.png)
 
-## Installation with Docker
- 
+## Installation with Docker
+
 Using Docker to install SonarQube, you can optionally create storage volumes with Docker to prevent the loss of information,
 
 ```console
@@ -82,13 +84,13 @@ docker volume create --name sonarqube_logs
 
 You can verify the volumes were created successfully,
 
-```
+```bash
 docker volume ls
 ```
 
 which outputs,
 
-```
+```bash
 $ docker volume ls
 DRIVER              VOLUME NAME
 local               sonarqube_data
@@ -102,11 +104,11 @@ Then run the SonarQube container,
 docker run -d --name my-sonarqube -p 9000:9000 -v sonarqube_data:/opt/sonarqube/data -v sonarqube_extensions:/opt/sonarqube/extensions -v sonarqube_logs:/opt/sonarqube/logs sonarqube
 ```
 
-## [Optional] Installation on MacOS
+## [Optional] Installation on MacOS
 
 I recommend to use Docker for this tutorial (see previous step) but if you want to install SonarQube directly on localhost on macOS, you can use homebrew,
 
-```
+```bash
 brew install sonar
 brew install sonar-scanner
 sonar start
@@ -114,7 +116,7 @@ sonar start
 
 Open the SonarQube console,
 
-```
+```bash
 open http://localhost:9000/projects
 ```
 
@@ -122,17 +124,17 @@ open http://localhost:9000/projects
 
 In the [labs.cognitiveclass.ai terminal](https://labs.cognitiveclass.ai/tools/theiadocker/), you do not have access to a browser. If you’re running SonarQube in a windows environment with access to a browser, e.g. MacOS, you can open the SonarQube console in a new browser tab at [http://localhost:9000/projects](http://localhost:9000/projects), login with System Administrator credentials (login=admin, password=admin).
 
-```
+```bash
 open http://localhost:9000/projects
 ```
 
 ![SonarQube Projects](../.gitbook/get-started/sonarqube-projects.png)
 
-## Get NodeGoat App
+## Get NodeGoat App
 
 Clone and install the dependencies for the NodeGoat app,
 
-```
+```bash
 git clone https://github.com/OWASP/NodeGoat.git
 cd NodeGoat
 npm install --save
@@ -148,13 +150,13 @@ Select the file development.js, and click Open,
 
 Or if you have access to `vi`,
 
-```
+```bash
 vi config/env/development.js
 ```
 
 Uncomment the following line at line number 8,
 
-```
+```javascript
 db: "mongodb://localhost:27017/nodegoat",
 ```
 
@@ -164,7 +166,7 @@ From the top menu, click `> File > Save`, and close the file again.
 
 Install MongoDB with Docker,
 
-```
+```bash
 docker run --name my-mongo -d -p 27017:27017 mongo
 docker exec -it  my-mongo bash
 > mongo
@@ -178,14 +180,14 @@ docker exec -it  my-mongo bash
 
 Populate the Mongo database with seed data, and start the NodeGoat app,
 
-```
+```bash
 npm run db:seed
 npm start
 ```
 
 [Optional] If you have access to a windows based environment, you can open the browser UI for the NodeGoat app at [http://localhost:4000](http://localhost:4000),
 
-```
+```bash
 open http://localhost:4000
 ```
 
@@ -195,7 +197,7 @@ and login with credentials `admin:Admin_123`.
 
 Exit running the NodeGoat app with `CTRL-<C>`, optionally clear your terminal.
 
-```
+```bash
 clear
 ```
 
@@ -203,7 +205,7 @@ clear
 
 Make sure SonarQube is running,
 
-```
+```bash
 $ docker container ls
 CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS     PORTS     NAMES
 bb0f317fc67c    mongo    "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes    0.0.0.0:27017->27017/tcp   my-mongo
@@ -212,7 +214,7 @@ bb0f317fc67c    mongo    "docker-entrypoint.s…"   3 minutes ago       Up 3 min
 
 Or,
 
-```
+```bash
 $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND    CREATED   STATUS   PORTS   NAMES
 505b6f7da982   mongo     "docker-entrypoint.s…"   3 minutes ago       Up 3 minutes    0.0.0.0:27017->27017/tcp  my-mongo
@@ -221,8 +223,7 @@ c885a4bdcda2   sonarqube "bin/run.sh bin/sona…"   7 minutes ago       Up 7 min
 
 Create a new SonarQube project using the Web API, with display name and project key `my-nodegoat`,
 
-
-```
+```bash
 $ curl -u admin:admin -X POST 'http://localhost:9000/api/projects/create?name=my-nodegoat&project=my-nodegoat'
 
 {"project":{"key":"my-nodegoat","name":"my-nodegoat","qualifier":"TRK","visibility":"public"}}
@@ -230,7 +231,7 @@ $ curl -u admin:admin -X POST 'http://localhost:9000/api/projects/create?name=my
 
 Generate a user access token for your new project,
 
-```
+```bash
 $ curl -u admin:admin -X POST 'http://localhost:9000/api/user_tokens/generate' -d "name=sca-lab-token"
 
 {"login":"admin","name":"sca-lab-token","token":"f0d226f80f6b190e6f1accf2623e244775eb204e","createdAt":"2020-09-16T11:54:11+0000"}
@@ -264,13 +265,13 @@ After you select the client OS, the console will provide you with a download opt
 
 ![SonarQube Download](../.gitbook/get-started/sonarqube-ui-download.png)
 
-## Setup the SonarQube Scanner CLI
+## Setup the SonarQube Scanner CLI
 
 The preferred way to run SonarQube Scanner CLI in this tutorial is by using the Docker image (as described below), but you can also run SonarQube directly on local host.
 
 Configure a SonarQube scan by including a properties file in the repository of your project to be scanned. In the NodeGoat directory, create a `sonar-project.properties` file,
 
-```
+```bash
 cat > sonar-project.properties <<EOF
 sonar.projectKey=my-nodegoat
 sonar.projectName=my-nodegoat
@@ -283,13 +284,13 @@ To use SonarQube Scanner CLI using Docker as recommended, skip the next steps an
 
 [Optional] An alternative way to run SonarQube is to install the CLI on your client. On Mac OSX, you can use Homebrew,
 
-```
+```bash
 brew install sonar-scanner
 ```
 
 On Linux, use the following command,
 
-```
+```bash
 wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.4.0.2170-linux.zip
 unzip sonar-scanner-cli-4.4.0.2170-linux.zip
 echo 'export PATH=$HOME/sonar-scanner-4.4.0.2170-linux/bin:$PATH' > .bash_profile
@@ -301,27 +302,27 @@ sonar-scanner --version
 
 Find the IP Address on your client. On Linux,
 
-```
+```bash
 $ hostname -I | awk '{print $1}'
 172.30.84.168
 ```
 
 On Mac OSX,
 
-```
+```bash
 % ipconfig getifaddr en0
 192.168.1.15
 ```
 
 Set the HOST environment variable,
 
-```
+```bash
 SONARQUBE_URL=http://192.168.1.15:9000
 ```
 
 Run the scanner from the Docker image,
 
-```
+```bash
 $ docker run --rm -e SONAR_HOST_URL=${SONARQUBE_URL} -e "SONAR_PROJECT_KEY=my-nodegoat" -v $(pwd):/usr/src sonarsource/sonar-scanner-cli
 
 ...
@@ -339,13 +340,13 @@ INFO: --------------------------------------------------------------
 
 You can retrieve the full results via the CLI,
 
-```
+```bash
 curl -u admin:admin "http://localhost:9000/api/issues/search"
 ```
 
 [Optional] If you have access to the browser UI, open the report in a browser,
 
-```
+```bash
 open ${SONARQUBE_URL}/dashboard?id=my-nodegoat
 ```
 
@@ -357,13 +358,13 @@ Or view the Projects dashboard,
 
 SonarQube defines three types of issues: Bug, Vulnerability and Code Smell. To search for issues of type `Bug`,
 
-```
+```bash
 curl -u admin:admin "http://localhost:9000/api/issues/search" -d "types=BUG" > issues-bugs.yaml
 ```
 
 Which should look something as follows,
 
-```
+```json
 {
   "total":97,
   "p":1,

@@ -1,18 +1,17 @@
 
-## SonarQube
+# SonarQube
 
 SonarQube is an automatic code review tool to detect bugs, vulnerabilities, and code smells in your code.
 
-### About this workshop
+## About this workshop
 
 The introductory page of the workshop is broken down into the following sections:
 
-- [SonarQube](#sonarqube)
-  - [About this workshop](#about-this-workshop)
-- [Agenda](#agenda)
-- [Compatibility](#compatibility)
-- [Technology Used](#technology-used)
-- [Credits](#credits)
+* [About this workshop](#about-this-workshop)
+* [Agenda](#agenda)
+* [Compatibility](#compatibility)
+* [Technology Used](#technology-used)
+* [Credits](#credits)
 
 ## Agenda
 
