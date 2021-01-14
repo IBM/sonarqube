@@ -1,20 +1,19 @@
-# Lab 1 - Get Started with SonarQube
+# Lab 1. Get Started with SonarQube
 
 Description goes here.
 
 This section is comprised of the following steps:
 
-* [Lab 1 - Get Started with SonarQube](#lab-1---get-started-with-sonarqube)
-  * [About SonarQube](#about-sonarqube)
-  * [Open a Client Terminal](#open-a-clientterminal)
-  * [Installation with Docker](#installation-withdocker)
-  * [[Optional] Installation on MacOS](#optional-installation-onmacos)
-  * [[Optional] Open SonarQube Console](#optional-open-sonarqube-console)
-  * [Get NodeGoat App](#get-nodegoatapp)
-  * [Setup NodeGoat Project in SonarQube](#setup-nodegoat-project-in-sonarqube)
-  * [Setup the SonarQube Scanner CLI](#setup-the-sonarqube-scannercli)
-  * [Run a Basic SonarQube Scan](#run-a-basic-sonarqube-scan)
-  * [Conclusion](#conclusion)
+* [About SonarQube](#about-sonarqube)
+* [Open a Client Terminal](#open-a-client-terminal)
+* [Installation with Docker](#installation-with-docker)
+* [[Optional] Installation on MacOS](#optional-installation-on-macos)
+* [[Optional] Open SonarQube Console](#optional-open-sonarqube-console)
+* [Get NodeGoat App](#get-nodegoat-app)
+* [Setup NodeGoat Project in SonarQube](#setup-nodegoat-project-in-sonarqube)
+* [Setup the SonarQube Scanner CLI](#setup-the-sonarqube-scanner-cli)
+* [Run a Basic SonarQube Scan](#run-a-basic-sonarqube-scan)
+* [Conclusion](#conclusion)
 
 ## About SonarQube
 
@@ -22,7 +21,7 @@ Security is an intimidating topic. Some parts of security are really advanced an
 
 [SonarQube](https://www.sonarqube.org) is a leading automatic code review tool to detect bugs, vulnerabilities and code smells in your code. To run secure microservices and applications, it is important to fully automate security testing of your application with Application Security Testing or AST.
 
-![SonarQube](../.gitbook/get-started/sonarqube-logo.png)
+![SonarQube](../assets/get-started/sonarqube-logo.png)
 
 You can roughly distinguish three to four forms of Application Security Testing (AST):
 
@@ -52,25 +51,25 @@ The [CognitiveClass.ai](https://cognitiveclass.ai) is probably the most feature-
 
 To access a free client terminal environment, go to [labs.cognitiveclass.ai](https://labs.cognitiveclass.ai),
 
-![I Understand](../.gitbook/get-started/attention-i-understand.png)
+![I Understand](../assets/get-started/attention-i-understand.png)
 
-![CognitiveClass Labs](../.gitbook/get-started/cognitive-class-labs.png)
+![CognitiveClass Labs](../assets/get-started/cognitive-class-labs.png)
 
 Sign up and log in with your social account or signup for a free Cognitive Class account,
 
-![CognitiveClass Labs](../.gitbook/get-started/cognitiveclass-signin.png)
+![CognitiveClass Labs](../assets/get-started/cognitiveclass-signin.png)
 
 Once logged in, select the `Theia - Cloud IDE (With Docker)` environment,
 
-![CognitiveClass Labs - Select Environment](../.gitbook/get-started/cognitive-class-select-environment.png)
+![CognitiveClass Labs - Select Environment](../assets/get-started/cognitive-class-select-environment.png)
 
 This will load the Theia IDE, a free open source cloud IDE environment,
 
-![CognitiveClass Labs - Theia IDE](../.gitbook/get-started/cognitive-class-theia-ide.png)
+![CognitiveClass Labs - Theia IDE](../assets/get-started/cognitive-class-theia-ide.png)
 
 Open a new client terminal from the Terminal menu > New Terminal.
 
-![CognitiveClass Labs - Theia IDE](../.gitbook/get-started/cognitive-class-theia-terminal.png)
+![CognitiveClass Labs - Theia IDE](../assets/get-started/cognitive-class-theia-terminal.png)
 
 ## Installation with Docker
 
@@ -128,7 +127,7 @@ In the [labs.cognitiveclass.ai terminal](https://labs.cognitiveclass.ai/tools/th
 open http://localhost:9000/projects
 ```
 
-![SonarQube Projects](../.gitbook/get-started/sonarqube-projects.png)
+![SonarQube Projects](../assets/get-started/sonarqube-projects.png)
 
 ## Get NodeGoat App
 
@@ -142,11 +141,11 @@ npm install --save
 
 The NodeGoat app uses a MongoDB. Edit the config file located at `config/env/development.js` with the file editor. In the `Theia Cloud IDE` you can open the file via the top menu `> File > Open`, then browse to the `config/env folder`,
 
-![Theia IDE Open file](../.gitbook/get-started/theia-ide-open-file.png)
+![Theia IDE Open file](../assets/get-started/theia-ide-open-file.png)
 
 Select the file development.js, and click Open,
 
-![Theia IDE Select file](../.gitbook/get-started/theia-ide-select-file.png)
+![Theia IDE Select file](../assets/get-started/theia-ide-select-file.png)
 
 Or if you have access to `vi`,
 
@@ -160,7 +159,7 @@ Uncomment the following line at line number 8,
 db: "mongodb://localhost:27017/nodegoat",
 ```
 
-![Theia IDE Uncomment line](../.gitbook/get-started/theia-ide-uncomment-line.png)
+![Theia IDE Uncomment line](../assets/get-started/theia-ide-uncomment-line.png)
 
 From the top menu, click `> File > Save`, and close the file again.
 
@@ -193,7 +192,7 @@ open http://localhost:4000
 
 and login with credentials `admin:Admin_123`.
 
-![NodeGoat login](../.gitbook/get-started/nodegoat-login.png)
+![NodeGoat login](../assets/get-started/nodegoat-login.png)
 
 Exit running the NodeGoat app with `CTRL-<C>`, optionally clear your terminal.
 
@@ -239,15 +238,15 @@ $ curl -u admin:admin -X POST 'http://localhost:9000/api/user_tokens/generate' -
 
 Or to create the project in the SonarQube web console, under `projects` click the `plus` icon in the top right corner to create a new project, called `my-nodegoat` with display name and key `my-nodegoat` and click `Set Up`.
 
-![SonarQube UI Create Project](../.gitbook/get-started/sonarqube-ui-create-project.png)
+![SonarQube UI Create Project](../assets/get-started/sonarqube-ui-create-project.png)
 
 In the `Analyze your project` step, under `Provide a token` select `Generate a token` and enter a name for a token called `sca-lab-token`, click `Generate`,
 
-![SonarQube Analyze your Project](../.gitbook/get-started/sonarqube-ui-analyze-project.png)
+![SonarQube Analyze your Project](../assets/get-started/sonarqube-ui-analyze-project.png)
 
 Click Continue,
 
-![SonarQube Provide a Token](../.gitbook/get-started/sonarqube-ui-provide-token.png)
+![SonarQube Provide a Token](../assets/get-started/sonarqube-ui-provide-token.png)
 
 The user access token that is generated is valid for the currently active user: d51a0ffcf2eece22881537afc6f4559cf43bc633.
 
@@ -255,15 +254,15 @@ The NodeGoat project we are analyzing is written in JavaScript, Node.js and HTML
 
 As the project's main language, select `Other`.
 
-![SonarQube Project's Language](../.gitbook/get-started/sonarqube-ui-project-language.png)
+![SonarQube Project's Language](../assets/get-started/sonarqube-ui-project-language.png)
 
 As your OS, select the OS you are running under, e.g. `macOS` or `Linux`, depending on the OS of the client to run the scanner,
 
-![SonarQube Client OS](../.gitbook/get-started/sonarqube-ui-client-os.png)
+![SonarQube Client OS](../assets/get-started/sonarqube-ui-client-os.png)
 
 After you select the client OS, the console will provide you with a download option for the scanner and the alternative command to run the scanner using Docker.
 
-![SonarQube Download](../.gitbook/get-started/sonarqube-ui-download.png)
+![SonarQube Download](../assets/get-started/sonarqube-ui-download.png)
 
 ## Setup the SonarQube Scanner CLI
 
@@ -350,11 +349,11 @@ curl -u admin:admin "http://localhost:9000/api/issues/search"
 open ${SONARQUBE_URL}/dashboard?id=my-nodegoat
 ```
 
-![SonarQube Analysis Report](../.gitbook/get-started/sonarqube-analysis-report.png)
+![SonarQube Analysis Report](../assets/get-started/sonarqube-analysis-report.png)
 
 Or view the Projects dashboard,
 
-![SonarQube Analysis Projects](../.gitbook/get-started/sonarqube-analysis-projects.png)
+![SonarQube Analysis Projects](../assets/get-started/sonarqube-analysis-projects.png)
 
 SonarQube defines three types of issues: Bug, Vulnerability and Code Smell. To search for issues of type `Bug`,
 
@@ -421,11 +420,11 @@ Which should look something as follows,
 
 [Optional] Or browse your project scan in the console,
 
-![SonarQube Analysis Report](../.gitbook/get-started/sonarqube-analysis-report.png)
+![SonarQube Analysis Report](../assets/get-started/sonarqube-analysis-report.png)
 
 and select `Bugs`,
 
-![SonarQube Analysis Bugs](../.gitbook/get-started/sonarqube-analysis-bugs.png)
+![SonarQube Analysis Bugs](../assets/get-started/sonarqube-analysis-bugs.png)
 
 ## Conclusion
 
